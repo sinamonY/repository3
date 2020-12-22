@@ -9,6 +9,7 @@ public class MyBootAppEach2Application {
 	public static void main(String[] args) {
 		SpringApplication.run(MyBootAppEach2Application.class, args);
 		System.out.println("てすと");
+		System.out.println("てすとてすと");
 	}
 
 }
