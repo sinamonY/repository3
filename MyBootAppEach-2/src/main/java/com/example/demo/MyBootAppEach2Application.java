@@ -11,6 +11,7 @@ public class MyBootAppEach2Application {
 		System.out.println("てすと");
 		System.out.println("てすとてすと");
 		System.out.println("てすとてすとちゃん");
+		System.out.println("ジェネリックアカに戻してみたよ");
 	}
 
 }
