@@ -10,6 +10,7 @@ public class MyBootAppEach2Application {
 		SpringApplication.run(MyBootAppEach2Application.class, args);
 		System.out.println("てすと");
 		System.out.println("てすとてすと");
+		System.out.println("てすとてすとちゃん");
 	}
 
 }
