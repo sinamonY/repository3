@@ -4,10 +4,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class Each {
+public class HeloYuriko {
 
 	@RequestMapping(value="/")
 	public String index() {
-		return "Helo yuriko";
+		return "HeloYuriko";
 	}
 }
