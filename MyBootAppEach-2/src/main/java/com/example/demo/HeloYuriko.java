@@ -1,10 +1,11 @@
 package com.example.demo;
 
-import java.util.ArrayList;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import repositories.MyDataRepository;
 
 //@Controller
 //public class HeloYuriko {
@@ -80,16 +81,29 @@ public class HeloYuriko{
 //public String home() {
 //	return "forward:/";
 
+//	@RequestMapping("/")
+//	public ModelAndView index(ModelAndView mav) {
+//		mav.setViewName("HeloYuriko");
+//		ArrayList<String[]> data = new ArrayList<String[]>();
+//		data.add(new String[] {"taro","taro@yamada","000-0000-0000"});
+//		data.add(new String[] {"taro","hanako@yamada","000-0000-0000"});
+//		data.add(new String[] {"taro","satie@yamada","000-0000-0000"});
+//		mav.addObject("data",data);
+//		return mav;
+//	}
+
+	@Autowired
+	MyDataRepository repository;
+	//このアノテーションはアプリに用意されているBeanオブジェクト（springMVCによって自動的にインスタンスが作成され、
+		//アプリ内で利用可能になったもの）に関連付けを行う。
+		//これにより、MyDataRepositoryインスタンスが自動的にrepositoryフィールドに設定される。
+
 	@RequestMapping("/")
-	public ModelAndView index(ModelAndView mav) {
-		mav.setViewName("HeloYuriko");
-		ArrayList<String[]> data = new ArrayList<String[]>();
-		data.add(new String[] {"taro","taro@yamada","000-0000-0000"});
-		data.add(new String[] {"taro","hanako@yamada","000-0000-0000"});
-		data.add(new String[] {"taro","satie@yamada","000-0000-0000"});
-		mav.addObject("data",data);
+	public ModelAndView index(ModelAndView mav) { //モデルアンドビュークラス型の変数mavを用意してビューへデータを渡す。
+		mav.setViewName("HeloYuriko"); //ビューの名前をmavにin。
+		mav.addObject("msg","this is sample content"); //メッセージオブジェクトをmavに追加。
+		Iterable<MyData> list = repository.findAll(); //Interable<MyData>型の変数listに、repositoryのエンティティを格納。
+		mav.addObject("data",list);
 		return mav;
 	}
-
-
 }

@@ -9,32 +9,34 @@
   h1{font-size:18pt; font-weight:bold; color:gray;}
   body{font-size:13pt; color:gray; margin:5px 25px;}
   pre{font-size:13pt; color:gray; padding:5px 10px; border:1px solid gray;}
-  tr{margin:5px;}
+<!-- tr{margin:5px;}
   th{padding:5px; color:white; background:darkgray;}
   td{padding:5px; color:black; background:#f0f0f0;}
+ -->
+
  </style>
 </head>
 
 
 <body>
    <h1 th:text="#{content.title}">HeloYuriko</h1>
+   <pre th:text="${data}"></pre>
 
-
+<!--
    <table>
      <tr>
       <th>NAME</th>
       <th>MAIL</th>
       <th>TEL</th>
      </tr>
-     <tr th:each="obj:${data}"> <!-- 拡張for文か？配列にデータある分だけ繰り返すだっけ。 -->
+     <tr th:each="obj:${data}"> <!-- 拡張for文か？配列にデータある分だけ繰り返すだっけ。
       <td th:text="${obj[0]}"></td>
       <td th:text="${obj[1]}"></td>
       <td th:text="${obj[2]}"></td>
      </tr>
    </table>
 
-
- <!--  <p th:text="${new java.util.Date().toString()}"></p>
+  <p th:text="${new java.util.Date().toString()}"></p>
 
     <form method="post" action="/">
     <p class="msg" th:text="${msg}"></p> 【class="msg"】あってもなくても結果かわらず。2021.1.1
